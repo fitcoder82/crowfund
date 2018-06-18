@@ -1,0 +1,26 @@
+<h1><%= pluralize @projects.size, "Project" %> </h1>
+
+<% @projects.each do |project| %>
+
+	<article>
+
+		<header>
+			<h2><%= project.name %></h2>
+		</header>
+
+		<p><%= truncate(project.description, length: 100, separator: '') %></p>
+
+		<table>
+
+			<tr>
+				<th>Website:</th>
+				<td><%= project.website %></td>
+			</tr>
+
+			<tr>
+				<th>Plegding ends on</th>
+				<td><%= time_in_words_format(project) %></td>
+			</tr>
+		</table>
+	</article>
+<% end %>
